@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEET-PG 2030</title>
+<style>
+:root{--bg:#f2f2f7;--card:#fff;--ink:#17171c;--mut:#8a8a93;--line:#e6e6ec;--acc:#d4878c;--track:#e5e5ea;--ok:#5bb896;--sel:#2b2b30;--fill:#f2f2f7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0f13;--card:#1b1b21;--ink:#f1f1f5;--mut:#9a9aa5;--line:#2c2c34;--track:#2e2e36;--sel:#f1f1f5;--fill:#26262d}}
+:root[data-theme="dark"]{--bg:#0f0f13;--card:#1b1b21;--ink:#f1f1f5;--mut:#9a9aa5;--line:#2c2c34;--track:#2e2e36;--sel:#f1f1f5;--fill:#26262d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif}
+main{max-width:900px;margin:0 auto;padding:16px 16px 100px}
+h1{font-size:30px;margin:0;font-weight:800;letter-spacing:-.5px}h2{font-size:19px;margin:0 0 10px;font-weight:700}
+.sub{color:var(--mut);margin:2px 0 14px}
+.cap{font-size:12px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;font-weight:600}
+.card{background:var(--card);border-radius:22px;padding:18px;margin-bottom:14px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.tile{background:var(--card);border-radius:18px;padding:14px 16px;min-height:76px}
+.tile b{display:block;font-size:19px;margin-top:6px}
+.big{font-size:42px;font-weight:800;letter-spacing:-1px;margin:4px 0 10px}
+.bar{height:11px;background:var(--track);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc);border-radius:9px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;margin-top:16px}.three b{display:block;font-size:22px}.three span,.mut{color:var(--mut);font-size:14px}
+.sp{margin-bottom:12px}.sp .r{display:flex;align-items:center;gap:10px}.sp .bar{margin-top:6px;height:9px}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}.g{flex:1;min-width:0}.pc{color:var(--acc);font-weight:700;min-width:44px;text-align:right}
+.sc{background:var(--card);border-radius:22px;padding:16px 16px 16px 20px;margin-bottom:12px;border-left:7px solid;display:flex;align-items:center;gap:12px;cursor:pointer}
+.sc .bar{margin-top:10px}.chev{color:var(--mut);font-size:22px}
+.seg{display:inline-flex;background:var(--track);border-radius:14px;padding:4px;margin:6px 0 14px}
+.seg button{border:0;background:none;color:var(--mut);font:600 13px inherit;letter-spacing:.1em;padding:10px 18px;border-radius:11px;cursor:pointer}
+.seg button.on{background:var(--card);color:var(--ink)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:4px 0}
+.cal .h{font-size:13px;color:var(--mut);font-weight:600;padding:8px 0}
+.cd{aspect-ratio:1/1.1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-radius:14px;cursor:pointer;font-size:16px}
+.cd.s{background:var(--sel);color:var(--card)}.cd.t:not(.s){outline:2px solid var(--acc);outline-offset:-2px}
+.cd i{width:7px;height:7px;border-radius:50%;background:var(--track)}.cd.s i{background:var(--mut)}.cd i.p{background:var(--acc)}.cd i.c{background:var(--ok)}
+.mh{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:19px;margin-bottom:6px}
+.nb{border:0;background:none;color:var(--ink);font-size:26px;padding:4px 12px;cursor:pointer}
+.blk{background:var(--fill);border-radius:14px;padding:12px 14px;margin-bottom:10px;border-left:5px solid;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.blk b{display:block}.stt{font-size:13px;color:var(--mut);font-weight:600;white-space:nowrap}.stt.p{color:var(--acc)}.stt.c{color:var(--ok)}
+.ck{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:6px}
+.c{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:16px;padding:6px 0;user-select:none}
+.bx{width:26px;height:26px;border:2px solid var(--mut);border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px}
+.c.on .bx{background:var(--ok);border-color:var(--ok)}
+.tk{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid var(--line);cursor:pointer}.tk:first-of-type{border-top:0}
+.tk .c{padding:0}.tk b{display:block}
+.chips{display:flex;gap:8px;margin:14px 0}.chips button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 16px inherit;padding:10px 18px;border-radius:20px;cursor:pointer}.chips button.on{background:var(--sel);color:var(--card);border-color:var(--sel)}
+.row{background:var(--card);border-radius:20px;padding:14px 16px 12px 20px;margin-bottom:12px;border-left:6px solid}
+.row .t{display:flex;gap:14px;align-items:baseline}.row .t span:first-child{color:var(--mut);font-size:15px}.row .t b{font-size:18px}.row .stt{margin-left:auto}
+.hd{margin:-16px -16px 14px;padding:16px;display:flex;gap:14px;align-items:center;color:#2a2a33}
+.hd button{width:46px;height:46px;border-radius:50%;border:0;background:#fff;font-size:22px;cursor:pointer}
+.empty{text-align:center;padding:70px 20px}.empty svg{color:var(--mut)}.empty b{display:block;font-size:19px;margin:22px 0 6px}
+.dn{display:flex;align-items:center;justify-content:center;position:relative}
+.chart{position:relative;height:230px;margin:6px 0 40px 38px}
+.gl{position:absolute;left:0;right:0;border-top:1px solid var(--line);font-size:12px;color:var(--mut)}.gl span{position:absolute;left:-38px;top:-8px}
+.bars{position:absolute;inset:0;display:flex;align-items:flex-end}
+.bc{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}
+.bc div{width:70%;background:var(--bg);border-radius:4px 4px 0 0}.bc em{position:absolute;bottom:-38px;font-size:11px;color:var(--mut);transform:rotate(-45deg);transform-origin:top right;right:30%;white-space:nowrap;font-style:normal}
+.bc small{font-size:10px;color:var(--mut);margin-bottom:2px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;border:0;background:none;color:var(--mut);font:500 14px inherit;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:4px 0}
+nav button.on{color:var(--ink);font-weight:700}nav svg{width:30px;height:30px}
+@media(min-width:900px){.tiles{grid-template-columns:1fr 1fr 1fr}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.two .card{margin:0}}
+</style></head><body>
+<main id="v"></main><nav id="nav"></nav>
+<script>
+var E={"S":["ENT","Ophthalmology","Community Medicine","Forensic Medicine","Obstetrics & Gynaecology","Medicine","Surgery","Paediatrics","Orthopaedics","Dermatology","Psychiatry","Radiology","Anaesthesia","Anatomy","Biochemistry","Physiology","Pharmacology","Microbiology","Pathology"],"PF":["Before schedule starts","3rd-prof protected period (light recall)"],"D":["P0","0:1:6.25.30.20.27.41.26","0:8:40.30.41.26","0:12:54.40.45","0:15:50.28.41.32","0:19:45.64","C","R","C","C","C","C","C","C","R","C","C","0:21:63","0:22:60.42.44.34","0:26:37.52.40.22","0:30:57.35.30.30","R","0:34:42.40.5.22.41.20","0:40:40.20.75","0:43:50.25.42.34","0:47:30.57.50.22","0:51:54.54.62","0:54:28.40.30.50","R","0:58:75.50.40","0:61:40.50.55","0:64:50.61","1:1:7.42.74.64.21","1:6:63.60.40","1:9:54.34.59","R","1:12:42.79.42","1:15:20.24.18.60.54","1:20:62.50.52","1:23:64.50.49","1:26:50.46.64","1:29:72.48.52","R","1:32:50.60.50","1:35:45.50.50.30","1:39:32.61.42","1:42:52.46.54.56","1:46:62.57.24.30","1:50:14.16.5","R","2:1:4.27.31.34.70","2:6:32.65.52","2:9:40.55.32.50","2:13:20.57.28.62.42","2:18:40.40.15.20.55","2:23:67.34.44","R","2:26:50.28.75","2:29:35.50.28.54","2:33:72.16.34.52","2:37:34.45.65.40","2:41:65.30.24.55","2:45:34.27.32.30.15.30","R","2:51:50.21.26.54","2:55:40.60.47","2:58:50.25.47.30.16","2:63:50.28.50.24.52","2:68:50.14.26.16.27","2:73:62.28.50","R","2:76:47.27.51.36","2:80:47.45.52.27","2:84:60.40.47","2:87:40.44.26.24.40","2:92:47.50.32.20","2:96:47.28.52.52","R","2:100:42","3:1:6.50.60.20.40","3:6:24.47.47.42","3:10:40.59.42.54","3:14:27.34.42.60","3:18:52.42.40","R","3:21:76.50.52","3:24:17.52.52.50","3:28:20.34.75","3:31:75.51.26","3:34:73.20.60","3:37:62.34.34","R","3:40:57.27.47.22","3:44:66","C","C","C","C","R","C","C","C","C","C","C","R","4:1:7.54.52","4:4:41.27.52","4:7:40.52","4:9:64.41.50","4:12:50.50.50","4:15:50.50.50","R","4:18:22.50.50","4:21:50.22.50","4:24:50.50.50","4:27:50.50.50","4:30:50.50.50","4:33:50.50.50","R","4:36:50.50.50","4:39:50.50.50","4:42:50.50.50","4:45:50.50.50","4:48:50.50.50","4:51:50.50.27","R","4:54:50.50.50","4:57:50.50.50","4:60:50.62","4:62:50.50.50","4:65:50.50.50","4:68:50.50.22","R","4:71:50.50.50","4:74:50.50.50","4:77:50.50","4:79:57.50.50","4:82:50.50.50","4:85:50.50.50","R","4:88:50.50.50","4:91:50.50.50","4:94:50.50.50","4:97:50.50.50","4:100:50.50.50","4:103:50.50.50","R","4:106:50.50.50","4:109:50.50.50","5:1:6.12.40.54.22","5:6:54.54.40.30","5:10:40.15.30.14","5:14:60.48.25","R","5:17:42.25.51","5:20:42.24.50.25","5:24:34.55.19","5:27:57.22.29.42.40","5:32:25.54.40","5:35:50.52","R","5:37:50.30.24.42","5:41:57.46","5:43:50.20.16.20.25.16","5:49:50.71.55.10","5:53:54.36.50","5:56:30.63.34.21","R","5:60:54.52","5:62:60.50.20","5:65:35.50.50.12","5:69:50.50.40.50","5:73:50.27.57","5:76:62.9.54.20","R","5:80:20.50.62","5:83:37.47.42","5:86:40.54.50","5:89:24.25.30.62","5:93:63.54","5:95:34.11.44.30","R","5:99:50.22.30","5:102:50.42.50","5:105:60.60.30","5:108:51.34.30.25.42","5:113:50.40.25.24","5:117:52.50","R","5:119:50.50.21","5:122:54.45","5:124:52.6.20.26","5:128:62.28.27.64","5:132:41.45.24","5:135:60.50","R","5:137:57.24.50.14","5:141:20.50.61","5:144:62.20.24","5:147:57.51.50","5:150:61.71.14","5:153:40.25.50","R","5:156:50.24.42.30","5:160:50.50","5:162:57.25.26.30","5:166:50.24.20.50","5:170:60.50","5:172:52.50","R","5:174:50.24.40","5:177:43.20.57.22","5:181:50.42.6.25","5:185:50.50.52","5:188:50.40.47","5:191:50.50.50","R","5:194:22.17.47.50","5:198:50.50.44","5:201:55","6:1:7.40.27.54.52","6:6:30.50.50","6:9:50.56","R","6:11:50.50.50","6:14:50.50.50","6:17:63.71","6:19:62.54.42","6:22:50.62","6:24:50.50","R","6:26:52.50","6:28:57.50.40","6:31:57.50","6:33:71.54.40","6:36:50.52","6:38:64.55.22","R","6:41:74.50","6:43:67.64","6:45:50.52","6:47:52.50.50","6:50:54.50","6:52:50.40.50","R","6:55:51.57.42","6:58:40.40.54","6:61:50.50","6:63:52.50.52","6:66:50.57","6:68:57.71","R","6:70:50.50","6:72:54.50","6:74:50.40.50","6:77:54.50.27.50","6:81:40.30.25.40","7:1:7.72.60","R","7:4:60.50","7:6:60.61","7:8:50.50.27","7:11:50.50.50","7:14:57.50","7:16:65.50","R","7:18:45.62","7:20:50.50.20","7:23:50.60","7:25:52.60.54","7:28:50.50.50","7:31:50.60","R","7:33:62.50","7:35:50.50","7:37:52.64","7:39:50.50.60","7:42:60.67","7:44:62.50","R","7:46:50.50","7:48:71.50","7:50:75.62","7:52:50.54.54","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","P1","P1","P1","P1","R","P1","P1","7:55:61","8:1:6.34.72.64","8:5:75.54","8:7:75.60","R","8:9:60.67","8:11:52.60","8:13:66.64","8:15:70.67.53","8:18:73.40","8:20:57.30.50","R","8:23:54.47","8:25:63","9:1:6.34.54.34","9:5:52.34.41.30.25","9:10:50.22.45","9:13:65.25.28","R","9:16:40.25.25.34","9:20:57.50.20","9:23:26.50.25.21","10:1:5.30.75.62","10:5:71.50","10:7:52.60","R","10:9:50.57","10:11:47.24.40","10:14:52.33","10:16:72.50.50","10:19:60.51","10:21:44.25","R","11:1:6.40.40.30.27","11:6:25.25.51.25","11:10:63.5.25.40","11:14:30.50.40.50","11:18:30.50","11:20:71.44.26","R","11:23:50.27.30","11:26:54.61","11:28:40.52.40","11:31:62.6.24.51.12","11:36:54.55.25","11:39:53.50.24","R","11:42:60","12:1:5.22.40.40","12:5:60.54","12:7:62.50.40","12:10:62.25.40","12:13:75.34.30","R","12:16:54.47.40","12:19:52.50.26","12:22:27.50.40","12:25:54.50.52","12:28:53","13:1:0.0.0","R","13:4:0.0.0","13:7:0.0.0","13:10:0.0.0","14:1:0.0.0.0","14:5:0.0.0","14:8:0.0.0","R","14:11:0","15:1:0.0.0","15:4:0.0.0","15:7:0.0.0.0","15:11:0.0.0","15:14:0.0.0","R","16:1:0.0.0","16:4:0.0.0","16:7:0.0.0","16:10:0.0.0.0","17:1:0.0.0","17:4:0.0.0","R","17:7:0.0.0","17:10:0.0.0","17:13:0.0","18:1:0.0.0.0","18:5:0.0.0","18:8:0.0.0","R","18:11:0.0.0","18:14:0.0"]};
+var SN=E.S,PF=E.PF,COL=['#c5d0e3','#b5e3d3','#e9e3b0','#edcfb8','#d9c4dc','#d9a0ae','#c4dcd0','#efc3c7','#dfc79d','#b6dcd8','#b9b9dc','#e2bba7','#de9aa4','#d6c5e6','#dede9f','#c3cdb0','#d1aaa0','#c9bde0','#dcdcdc'];
+var WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],MF=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var D0=new Date(2026,10,1),p2=function(n){return('0'+n).slice(-2)};
+var DAYS=E.D.map(function(s,i){var o={i:i,t:'LRCP'.indexOf(s[0])>0?s[0]:'L',r:[]};if(o.t=='P')o.f=PF[+s.slice(1)];if(o.t=='L')s.split('|').forEach(function(r){var q=r.split(':'),m=q[2].split('.').map(Number);o.r.push({s:+q[0],a:+q[1],m:m,n:m.length,sum:m.reduce(function(x,y){return x+y},0)})});return o});
+var N=DAYS.length,FL=DAYS.findIndex(function(d){return d.t=='L'}),SD=SN.map(function(){return[]}),TOT=SN.map(function(){return 0});
+DAYS.forEach(function(d){d.r.forEach(function(r){SD[r.s].push([d.i,r]);TOT[r.s]+=r.n})});
+var ALL=TOT.reduce(function(a,b){return a+b},0);
+var S=load(),tab='dash',sv='month',sel=null,vm=null,sd=null,ft='all',STN=['Not Started','In Progress','Completed'],TIM=['10:00–12:30','14:00–15:00','07:15–08:15','21:00–21:30'];
+function load(){try{var j=JSON.parse(localStorage.getItem('np30b'));if(j&&j.d)return j}catch(e){}return{d:{}}}
+function save(){try{localStorage.setItem('np30b',JSON.stringify(S))}catch(e){}}
+function dt(i){return new Date(2026,10,1+i)}
+function fd(d,w){return(w?WD[d.getDay()]+', ':'')+p2(d.getDate())+' '+MO[d.getMonth()]+' '+d.getFullYear()}
+function tI(){var t=new Date();return Math.round((new Date(t.getFullYear(),t.getMonth(),t.getDate())-D0)/864e5)}
+function mk(i){return S.d[i]||0}function st(i){return mk(i)==15?2:mk(i)?1:0}
+function rng(r){return'L'+r.a+(r.n>1?'-L'+(r.a+r.n-1):'')}
+function hm(m){return m?Math.floor(m/60)+'h '+p2(m%60)+'m':''}
+function tk(i,k){S.d[i]=mk(i)^(1<<k);save();render()}
+function sc(c){return c==2?' c':c==1?' p':''}
+function lecDone(i){return mk(i)&1?DAYS[i].r.reduce(function(a,r){return a+r.n},0):0}
+function sDone(s){return SD[s].reduce(function(a,x){return a+(mk(x[0])&1?x[1].n:0)},0)}
+function doneAll(){return DAYS.reduce(function(a,d){return a+lecDone(d.i)},0)}
+function pct(a,b){return b?Math.round(a/b*1000)/10:0}
+function tasks(d){var L=['Marrow','Notes','QBank','Recall'];
+ if(d.t=='L')return[['Marrow','Watch assigned lectures'],['Notes','Annotate Marrow notes'],['QBank','20–30 Qs + explanations'],['Recall','Previous-day + same-day recall']];
+ var x=d.t=='R'?['Weekly revision','Consolidate notes','75–100 Qs','Test + error log']:d.t=='C'?['Catch-up / marked notes','Consolidate','50–100 Qs','Recall + error log']:['3rd Prof main block','Prof notes / answer writing','20–30 NEET Qs','30-min recall'];
+ return x.map(function(a){return[a,'']})}
+function checks(i){var d=DAYS[i];return'<div class="ck">'+tasks(d).map(function(t,k){var on=mk(i)>>k&1;return'<div class="c'+(on?' on':'')+'" onclick="tk('+i+','+k+')"><span class="bx">'+(on?'✓':'')+'</span>'+t[0]+'</div>'}).join('')+'</div>'}
+function blocks(i,det){var d=DAYS[i],s=st(i),h='';
+ if(d.t=='L')d.r.forEach(function(r){h+='<div class="blk" style="border-color:'+COL[r.s]+'"><div><b>'+SN[r.s]+'</b><span class="mut">'+rng(r)+' • '+r.n+' lec'+(det&&r.sum?' • '+hm(r.sum):'')+'</span></div><span class="stt'+sc(s)+'">'+STN[s]+'</span></div>'});
+ else h='<div class="blk" style="border-color:var(--track)"><div><b>'+(d.t=='R'?'Weekly revision':d.t=='C'?'Catch-up':'3rd Prof block')+'</b><span class="mut">'+(d.t=='R'?'No new lecture':d.t=='C'?'Weak topics, answer writing':d.f)+'</span></div><span class="stt'+sc(s)+'">'+STN[s]+'</span></div>';
+ return h}
+function ic(n){var p={dash:'<rect x="4" y="4" width="9" height="9" rx="2"/><rect x="17" y="4" width="9" height="9" rx="2"/><rect x="4" y="17" width="9" height="9" rx="2"/><rect x="17" y="17" width="9" height="9" rx="2"/>',today:'<circle cx="15" cy="15" r="5"/><path d="M15 3v3M15 24v3M3 15h3M24 15h3M6.5 6.5l2 2M21.5 21.5l2 2M6.5 23.5l2-2M21.5 8.5l2-2"/>',sched:'<rect x="4" y="6" width="22" height="20" rx="3"/><path d="M4 12h22M10 3v5M20 3v5M10 17h2M15 17h2M20 17h2M10 21h2M15 21h2"/>',subs:'<rect x="4" y="8" width="5" height="18" rx="1"/><rect x="11" y="5" width="6" height="21" rx="1"/><path d="M19 8l5-2 4 17-5 2z"/>',prog:'<path d="M7 26V14M15 26V5M23 26V18"/><path d="M4 26h22"/>'};return'<svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+p[n]+'</svg>'}
+function go(t){tab=t;sd=null;render();scrollTo(0,0)}
+function dash(){var t=tI(),d=t>=0&&t<N?DAYS[t]:null,D=doneAll(),h='<h1>NEET-PG 2030</h1><p class="sub">'+fd(new Date(),1).replace(/^(\w+),/,'$1,')+'</p>',sub='—',lec='—',stt='No tasks';
+ if(d&&d.t=='L'){sub=d.r.map(function(r){return SN[r.s]}).join(', ');lec=d.r.map(rng).join(', ');stt=STN[st(t)]}else if(d){stt=STN[st(t)];sub=d.f||'—'}
+ function T(k,v,x){return'<div class="tile"'+(x||'')+'><div class="cap">'+k+'</div><b>'+v+'</b></div>'}
+ h+='<div class="tiles">'+T('Overall',Math.round(pct(D,ALL))+'%')+T('Completed',D+' / '+ALL)+T('Today',p2(new Date().getDate())+' '+MO[new Date().getMonth()])+T('Today\'s subject',sub,' style="border-left:5px solid '+(d&&d.t=='L'?COL[d.r[0].s]:'var(--track)')+'"')+T('Today\'s lectures',lec)+T('Today\'s status',stt)+'</div>';
+ var A=stats();h+='<div class="two"><div class="card"><h2>Overall Progress</h2><div class="big">'+pct(D,ALL).toFixed(1)+'%</div><div class="bar"><i style="width:'+pct(D,ALL)+'%"></i></div><div class="three"><div><b>'+A.dd+'</b><span>Completed days</span></div><div><b>'+A.sk+'</b><span>Streak</span></div><div><b>'+(ALL-D)+'</b><span>Pending</span></div></div></div>';
+ h+='<div class="card"><h2>Subject Progress</h2>'+SN.map(function(n,s){var k=sDone(s);return'<div class="sp"><div class="r"><span class="dot" style="background:'+COL[s]+'"></span><b class="g">'+n+'</b><span class="mut">'+k+'/'+TOT[s]+'</span><span class="pc">'+Math.round(pct(k,TOT[s]))+'%</span></div><div class="bar"><i style="width:'+pct(k,TOT[s])+'%"></i></div></div>'}).join('')+'</div></div>';return h}
+function stats(){var t=tI(),dd=0,sk=0,wk=0,mo=0,n=new Date();DAYS.forEach(function(d){if(st(d.i)==2)dd++;var x=dt(d.i);if(mk(d.i)&1){var l=lecDone(d.i);if(x.getMonth()==n.getMonth()&&x.getFullYear()==n.getFullYear())mo+=l;var o=t-((n.getDay()+6)%7);if(d.i>=o&&d.i<o+7)wk+=l}});
+ for(var i=Math.min(t,N-1);i>=0;i--){if(st(i)==2)sk++;else if(i==t)continue;else break}return{dd:dd,sk:sk,wk:wk,mo:mo}}
+function today(){var t=tI(),h='<div class="cap">Today</div><h1 style="font-size:26px">'+fd(new Date(),1)+'</h1>';
+ if(t<FL||t>=N)return h+'<div class="empty">'+ic('subs').replace('<svg','<svg width="64" height="64"')+'<b>No lectures scheduled for today.</b><span class="mut">'+(t<FL?'Schedule starts '+fd(dt(FL))+'.':'First pass schedule has ended.')+'</span></div>';
+ return h+dayCard(t)}
+function dayCard(i){var d=DAYS[i],h='<div class="card" style="margin-top:14px">'+blocks(i,1);
+ if(d.t=='L'){d.r.forEach(function(r){h+='<div class="mut" style="margin:4px 0 8px">'+SN[r.s]+': '+r.m.map(function(m,k){return'L'+(r.a+k)+' ('+m+'m)'}).join(' · ')+'</div>'});h+=(d.r.reduce(function(a,r){return a+r.sum},0)?'<div class="mut" style="margin-bottom:6px"><b>Total: '+hm(d.r.reduce(function(a,r){return a+r.sum},0))+'</b></div>':'')}
+ h+=tasks(d).map(function(t,k){var on=mk(i)>>k&1;return'<div class="tk" onclick="tk('+i+','+k+')"><span class="c'+(on?' on':'')+'"><span class="bx">'+(on?'✓':'')+'</span></span><div><b>'+t[0]+'</b><span class="mut">'+(t[1]?t[1]+' • ':'')+TIM[k]+'</span></div></div>'}).join('');return h+'</div>'}
+function pick(i){sel=i;vm=null;render()}
+function mv(n){var d=dt(sel);if(sv=='month'){vm=vm||[d.getFullYear(),d.getMonth()];vm[1]+=n;if(vm[1]<0){vm[1]=11;vm[0]--}if(vm[1]>11){vm[1]=0;vm[0]++}}else{sel=Math.max(0,Math.min(N-1,sel+n*(sv=='week'?7:1)))}render()}
+function sched(){if(sel===null)sel=Math.max(FL,Math.min(N-1,tI()));var d=dt(sel),h='<h1>Schedule</h1><div class="seg">'+['day','week','month'].map(function(v){return'<button class="'+(sv==v?'on':'')+'" onclick="sv=\''+v+'\';vm=null;render()">'+v.toUpperCase()+'</button>'}).join('')+'</div>';
+ if(sv=='month'){vm=vm||[d.getFullYear(),d.getMonth()];var f=new Date(vm[0],vm[1],1),off=(f.getDay()+6)%7,dim=new Date(vm[0],vm[1]+1,0).getDate(),t=tI();
+  h+='<div class="card"><div class="mh"><button class="nb" onclick="mv(-1)">‹</button>'+MF[vm[1]]+' '+vm[0]+'<button class="nb" onclick="mv(1)">›</button></div><div class="cal">'+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(function(x){return'<div class="h">'+x+'</div>'}).join('');
+  for(var k=0;k<off;k++)h+='<div></div>';
+  for(var n=1;n<=dim;n++){var i=Math.round((new Date(vm[0],vm[1],n)-D0)/864e5),ok=i>=0&&i<N;h+=ok?'<div class="cd'+(i==sel?' s':'')+(i==t?' t':'')+'" onclick="pick('+i+')">'+n+'<i class="'+(st(i)==2?'c':st(i)?'p':'')+'"></i></div>':'<div class="cd" style="color:var(--mut);cursor:default">'+n+'</div>'}
+  h+='</div></div><div class="card"><h2>'+fd(d,1)+'</h2>'+blocks(sel)+checks(sel)+'</div>'}
+ else if(sv=='week'){var o=sel-((d.getDay()+6)%7);h+='<div class="card"><div class="mh"><button class="nb" onclick="mv(-1)">‹</button>'+fd(dt(Math.max(0,o)))+' – '+fd(dt(Math.min(N-1,o+6)))+'<button class="nb" onclick="mv(1)">›</button></div>';
+  for(var i=Math.max(0,o);i<Math.min(N,o+7);i++)h+='<div onclick="sv=\'day\';sel='+i+';render()" style="cursor:pointer"><div class="cap" style="margin:12px 0 6px">'+fd(dt(i),1)+'</div>'+blocks(i)+'</div>';h+='</div>'}
+ else h+='<div class="card"><div class="mh"><button class="nb" onclick="mv(-1)">‹</button>'+fd(d,1)+'<button class="nb" onclick="mv(1)">›</button></div></div>'+dayCard(sel).replace(' style="margin-top:14px"','');
+ return h}
+function subs(){if(sd!==null)return detail();var h='<h1>Subjects</h1><p class="sub">'+SN.length+' subjects • '+ALL+' lectures</p>';
+ return h+SN.map(function(n,s){var k=sDone(s);return'<div class="sc" style="border-color:'+COL[s]+'" onclick="sd='+s+';ft=\'all\';render();scrollTo(0,0)"><div class="g"><div style="display:flex;justify-content:space-between"><b style="font-size:18px">'+n+'</b><span class="pc" style="font-weight:600">'+Math.round(pct(k,TOT[s]))+'%</span></div><span class="mut">'+k+' of '+TOT[s]+' lectures</span><div class="bar"><i style="width:'+pct(k,TOT[s])+'%"></i></div></div><span class="chev">›</span></div>'}).join('')}
+function detail(){var s=sd,k=sDone(s),h='<div class="hd" style="background:'+COL[s]+'"><button onclick="sd=null;render()">‹</button><div><h1 style="font-size:26px">'+SN[s]+'</h1><span>'+k+' / '+TOT[s]+' · '+pct(k,TOT[s]).toFixed(1)+'%</span></div></div><div class="card" style="padding:14px"><div class="bar"><i style="width:'+pct(k,TOT[s])+'%"></i></div></div><div class="chips">'+['all','completed','pending'].map(function(f){return'<button class="'+(ft==f?'on':'')+'" onclick="ft=\''+f+'\';render()">'+f[0].toUpperCase()+f.slice(1)+'</button>'}).join('')+'</div>';
+ SD[s].forEach(function(x){var i=x[0],r=x[1],c=st(i);if(ft=='completed'&&c!=2)return;if(ft=='pending'&&c==2)return;h+='<div class="row" style="border-color:'+COL[s]+'"><div class="t"><span>'+fd(dt(i))+'</span><b>'+rng(r)+'</b><span class="stt'+sc(c)+'">'+STN[c]+'</span></div>'+checks(i)+'</div>'});return h}
+function prog(){var D=doneAll(),A=stats(),r=70,C=2*Math.PI*r,h='<h1>Progress</h1><div class="card" style="margin-top:14px"><h2>Completed vs Remaining</h2><div class="dn"><svg viewBox="0 0 200 200" width="250" height="250"><circle cx="100" cy="100" r="'+r+'" fill="none" stroke="var(--track)" stroke-width="26"/><circle cx="100" cy="100" r="'+r+'" fill="none" stroke="var(--acc)" stroke-width="26" stroke-dasharray="'+C*D/ALL+' '+C+'" transform="rotate(-90 100 100)"/><text x="100" y="100" text-anchor="middle" font-size="25" font-weight="800" fill="var(--ink)">'+pct(D,ALL).toFixed(1)+'%</text><text x="100" y="120" text-anchor="middle" font-size="12" fill="var(--mut)">'+D+' / '+ALL+'</text></svg></div><div style="text-align:center;font-weight:600"><span style="color:var(--acc)">●</span> Completed · '+D+' &nbsp; <span style="color:var(--track)">●</span> Remaining · '+(ALL-D)+'</div></div>';
+ h+='<div class="card"><h2>Subject Progress</h2><div class="chart">'+[0,20,40,60,80,100].map(function(v){return'<div class="gl" style="bottom:'+v+'%"><span>'+v.toFixed(1)+'</span></div>'}).join('')+'<div class="bars">'+SN.map(function(n,s){var p=pct(sDone(s),TOT[s]);return'<div class="bc"><small>'+Math.round(p)+'%</small><div style="height:'+Math.max(p,2)+'%;background:'+COL[s]+'"></div><em>'+n.slice(0,5)+'…</em></div>'}).join('')+'</div></div></div>';
+ function T(k,v){return'<div class="tile" style="background:var(--fill)"><b style="font-size:26px;margin:0">'+v+'</b><span class="mut">'+k+'</span></div>'}
+ return h+'<div class="card"><h2>At a glance</h2><div class="tiles" style="margin:0">'+T('Streak',A.sk)+T('Days done',A.dd)+T('This week',A.wk)+T('This month',A.mo)+'</div></div><button class="chips" style="border:0;background:none;color:var(--mut);font:14px inherit;cursor:pointer" onclick="if(confirm(\'Reset all progress?\')){S={d:{}};save();render()}">Reset all progress</button>'}
+var TABS=[['dash','Dashboard'],['today','Today'],['sched','Schedule'],['subs','Subjects'],['prog','Progress']];
+function render(){document.getElementById('nav').innerHTML=TABS.map(function(t){return'<button class="'+(t[0]==tab?'on':'')+'" onclick="go(\''+t[0]+'\')">'+ic(t[0])+t[1]+'</button>'}).join('');document.getElementById('v').innerHTML=({dash:dash,today:today,sched:sched,subs:subs,prog:prog})[tab]()}
+render();
+</script></body></html>
